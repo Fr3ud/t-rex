@@ -3,6 +3,9 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
 import { MeshSurfaceSampler  } from 'three/examples/jsm/math/MeshSurfaceSampler';
 
+import vertex from './shaders/vertex.glsl'
+import fragment from './shaders/fragment.glsl'
+
 export default class Model {
   constructor({ name, file, scene }) {
     this.name = name;
@@ -28,10 +31,16 @@ export default class Model {
       this.mesh.material = this.material;
       this.geometry = this.mesh.geometry;
 
-      this.particlesMaterial = new THREE.PointsMaterial({
-        color: 'tomato',
-        size : 0.02,
-      })
+      // this.particlesMaterial = new THREE.PointsMaterial({
+      //   color: 'tomato',
+      //   size : 0.02,
+      // })
+
+      this.particlesMaterial = new THREE.ShaderMaterial({
+        vertexShader: vertex,
+        fragmentShader: fragment,
+      });
+
       const numParticles = 25000;
       const sampler = new MeshSurfaceSampler(this.mesh).build();
       this.particlesGeometry = new THREE.BufferGeometry();
