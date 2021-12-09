@@ -37,6 +37,10 @@ export default class Model {
       // })
 
       this.particlesMaterial = new THREE.ShaderMaterial({
+        uniforms: {
+          uColor1: { value: new THREE.Color('#004af2')},
+          uColor2: { value: new THREE.Color('#FA7268')},
+        },
         vertexShader: vertex,
         fragmentShader: fragment,
       });
