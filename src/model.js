@@ -7,10 +7,13 @@ import vertex from './shaders/vertex.glsl'
 import fragment from './shaders/fragment.glsl'
 
 export default class Model {
-  constructor({ name, file, scene }) {
+  constructor({ name, file, scene, color1, color2 }) {
     this.name = name;
     this.file = file;
     this.scene = scene;
+
+    this.color1 = color1;
+    this.color2 = color2;
 
     this.loader = new GLTFLoader();
     this.dracoLoader = new DRACOLoader();
@@ -38,8 +41,10 @@ export default class Model {
 
       this.particlesMaterial = new THREE.ShaderMaterial({
         uniforms: {
-          uColor1: { value: new THREE.Color('#004af2')},
-          uColor2: { value: new THREE.Color('#FA7268')},
+          // uColor1: { value: new THREE.Color('#004af2')},
+          // uColor2: { value: new THREE.Color('#FA7268')},
+          uColor1: { value: new THREE.Color(this.color1)},
+          uColor2: { value: new THREE.Color(this.color2)},
         },
         vertexShader: vertex,
         fragmentShader: fragment,

@@ -60,9 +60,11 @@ scene.add( axesHelper );
 Models
 ------------------------------*/
 const tRex = new Model({
-  name : 't-rex',
-  file : './models/t-rex.glb',
-  scene: scene,
+  name  : 't-rex',
+  file  : './models/t-rex.glb',
+  scene : scene,
+  color1: 'blue',
+  color2: 'pink',
 })
 
 /*------------------------------
