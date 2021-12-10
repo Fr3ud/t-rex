@@ -48,6 +48,7 @@ export default class Model {
         },
         vertexShader: vertex,
         fragmentShader: fragment,
+        transparent: true,
       });
 
       const numParticles = 25000;
