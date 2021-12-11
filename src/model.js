@@ -34,11 +34,6 @@ export default class Model {
       this.mesh.material = this.material;
       this.geometry = this.mesh.geometry;
 
-      // this.particlesMaterial = new THREE.PointsMaterial({
-      //   color: 'tomato',
-      //   size : 0.02,
-      // })
-
       this.particlesMaterial = new THREE.ShaderMaterial({
         vertexShader  : vertex,
         fragmentShader: fragment,
@@ -47,8 +42,6 @@ export default class Model {
         depthWrite    : false,
         blending      : THREE.AdditiveBlending,
         uniforms      : {
-          // uColor1: { value: new THREE.Color('#004af2')},
-          // uColor2: { value: new THREE.Color('#FA7268')},
           uColor1: { value: new THREE.Color(this.color1)},
           uColor2: { value: new THREE.Color(this.color2)},
         },
