@@ -15,6 +15,8 @@ export default class Model {
     this.color1 = color1;
     this.color2 = color2;
 
+    this.active = false;
+
     this.loader = new GLTFLoader();
     this.dracoLoader = new DRACOLoader();
     this.dracoLoader.setDecoderPath('./draco/');
@@ -44,6 +46,7 @@ export default class Model {
         uniforms      : {
           uColor1: { value: new THREE.Color(this.color1)},
           uColor2: { value: new THREE.Color(this.color2)},
+          uTime  : { value: 0 },
         },
       });
 

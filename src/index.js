@@ -67,12 +67,18 @@ const tRex = new Model({
   color2: 'pink',
 })
 
+const clock = new THREE.Clock();
+
 /*------------------------------
 Loop
 ------------------------------*/
 const animate = function () {
   requestAnimationFrame( animate );
   renderer.render( scene, camera );
+
+  if (!tRex.isActive) {
+    tRex.particlesMaterial.uniforms.uTime.value = clock.getElapsedTime();
+  }
 };
 
 animate();
