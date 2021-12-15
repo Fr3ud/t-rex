@@ -15,7 +15,7 @@
     "parcel-plugin-static-files-copy": "^2.5.1"
   },
   "dependencies": {
-    "gsap": "^3.6.0",
+    "gsap": "^3.8.0",
     "three": "^0.125.2"
   }
 }
