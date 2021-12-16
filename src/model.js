@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import gsap from 'gsap';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
 import { MeshSurfaceSampler  } from 'three/examples/jsm/math/MeshSurfaceSampler';
@@ -47,6 +48,7 @@ export default class Model {
           uColor1: { value: new THREE.Color(this.color1)},
           uColor2: { value: new THREE.Color(this.color2)},
           uTime  : { value: 0 },
+          uScale : { value: 0 },
         },
       });
 
@@ -79,6 +81,12 @@ export default class Model {
       this.particles = new THREE.Points(this.particlesGeometry, this.particlesMaterial)
 
       this.scene.add(this.particles);
+
+      gsap.to(this.particlesMaterial.uniforms.uScale, {
+        value: 1,
+        duration: 0.6,
+        ease: 'power1.in'
+      })
     });
   }
 }
