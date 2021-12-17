@@ -45,6 +45,7 @@ Mesh
 OrbitControls
 ------------------------------*/
 const controls = new OrbitControls( camera, renderer.domElement );
+controls.enabled = false;
 
 
 /*------------------------------
