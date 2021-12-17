@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import gsap from 'gsap';
 
 import Model from './model';
 
@@ -77,7 +78,7 @@ const animate = function () {
   requestAnimationFrame( animate );
   renderer.render( scene, camera );
 
-  if (!tRex.isActive) {
+  if (!tRex.isActive && tRex.particlesMaterial) {
     tRex.particlesMaterial.uniforms.uTime.value = clock.getElapsedTime();
   }
 };
@@ -96,3 +97,17 @@ function onWindowResize() {
 }
 
 window.addEventListener( 'resize', onWindowResize, false );
+
+
+/*------------------------------
+Mouse move
+------------------------------*/
+function onMouseMove({ clientX, clientY }) {
+
+  gsap.to(scene.rotation, {
+    y: gsap.utils.mapRange(0, window.innerWidth, 0.2, -0.2, clientX),
+    x: gsap.utils.mapRange(0, window.innerWidth, 0.2, -0.2, clientY),
+  })
+}
+
+window.addEventListener('mousemove', onMouseMove)
