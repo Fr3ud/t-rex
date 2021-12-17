@@ -8,13 +8,15 @@ import vertex from './shaders/vertex.glsl'
 import fragment from './shaders/fragment.glsl'
 
 export default class Model {
-  constructor({ name, file, scene, color1, color2 }) {
+  constructor({ name, file, scene, color1, color2, background }) {
     this.name = name;
     this.file = file;
     this.scene = scene;
 
     this.color1 = color1;
     this.color2 = color2;
+
+    this.background = background;
 
     this.active = false;
 
@@ -94,6 +96,11 @@ export default class Model {
         y: 0,
         duration: 0.6,
         ease: 'power1.in'
+      });
+
+      gsap.to('body', {
+        background: this.background,
+        duration: 0.8,
       });
     });
   }

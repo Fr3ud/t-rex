@@ -60,11 +60,12 @@ Helpers
 Models
 ------------------------------*/
 const tRex = new Model({
-  name  : 't-rex',
-  file  : './models/t-rex.glb',
-  scene : scene,
-  color1: 'blue',
-  color2: 'pink',
+  name      : 't-rex',
+  file      : './models/t-rex.glb',
+  scene     : scene,
+  color1    : 'blue',
+  color2    : 'pink',
+  background: '#110048',
 })
 
 const clock = new THREE.Clock();
