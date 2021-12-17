@@ -86,7 +86,15 @@ export default class Model {
         value: 1,
         duration: 0.6,
         ease: 'power1.in'
-      })
+      });
+
+      gsap.fromTo(this.particles.rotation, {
+        y: Math.PI,
+      }, {
+        y: 0,
+        duration: 0.6,
+        ease: 'power1.in'
+      });
     });
   }
 }
