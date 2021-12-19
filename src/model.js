@@ -85,22 +85,22 @@ export default class Model {
       this.scene.add(this.particles);
 
       gsap.to(this.particlesMaterial.uniforms.uScale, {
-        value: 1,
+        value   : 1,
         duration: 0.6,
-        ease: 'power1.in'
+        ease    : 'power1.in'
       });
 
       gsap.fromTo(this.particles.rotation, {
         y: Math.PI,
       }, {
-        y: 0,
+        y       : 0,
         duration: 0.6,
-        ease: 'power1.in'
+        ease    : 'power1.in'
       });
 
       gsap.to('body', {
         background: this.background,
-        duration: 0.8,
+        duration  : 0.8,
       });
     });
   }
